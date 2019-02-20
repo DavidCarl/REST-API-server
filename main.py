@@ -20,6 +20,7 @@ class test(Resource):
     def post(self):
         json_data = request.get_json(force=True)
         print(json_data)
+        print(request.headers.get('Authorization'))
         return json_data
         # return jsonify(newdata=newdata)
 
