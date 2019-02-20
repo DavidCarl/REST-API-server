@@ -9,6 +9,13 @@ api = Api(app)
 def index():
     return render_template('body.html')
 
+@app.route('/api/test')
+def api_test():
+    try:
+        return jsonify({'state': 'Succes!'})
+    except:
+        return jsonify({'state': 'Failed!'})
+
 class test(Resource):
     def post(self):
         json_data = request.get_json(force=True)
@@ -17,3 +24,8 @@ class test(Resource):
         # return jsonify(newdata=newdata)
 
 api.add_resource(test, '/v1/test')
+
+def main():
+    app.run(debug=True, host='0.0.0.0', port=5000)
+
+main()
