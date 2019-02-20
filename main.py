@@ -17,4 +17,3 @@ class test(Resource):
         # return jsonify(newdata=newdata)
 
 api.add_resource(test, '/v1/test')
-api.add_resource(addtime, '/v1/post')
